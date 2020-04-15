@@ -24,7 +24,7 @@ class Student {
         string GetEmailAddress() const;    
         int GetAge() const;               
         int* GetDaysInCourse() const;             
-        DegreeProgram GetDegreeProgram() const;
+        string GetDegreeProgram() const;
         void PrintData() const;
         
     private:

@@ -13,9 +13,5 @@ class Roster {
         void printByDegreeProgram(DegreeProgram degreeProgram);
 
     private:
-        
+        Student* classRoster[5];
 };
-
-void Roster::printAll() {
-    
-}

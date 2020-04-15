@@ -73,9 +73,9 @@ int* Student::GetDaysInCourse() const {
     return daysInCourse;
 }
 
-DegreeProgram Student::GetDegreeProgram() const {
-    // switch
-    // return degreeprogram;
+string Student::GetDegreeProgram() const {
+   
+    return degreeType[degreeprogram];
 }
 
 void Student::PrintData() const {
