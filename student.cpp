@@ -9,15 +9,12 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->lastName = lastName;
     this->emailAddress = emailAddress;
     this->age = age;
-    int daysInCourseArray[3];
-    daysInCourseArray[0] = daysInCourse1;
-    daysInCourseArray[1] = daysInCourse2;
-    daysInCourseArray[2] = daysInCourse3;
-    this->daysInCourse = daysInCourseArray;
-    this->degreeprogram = degreeprogram;
-    
+    this->daysInCourse = new int[3];
+    this->daysInCourse[0] = daysInCourse1;
+    this->daysInCourse[1] = daysInCourse2;
+    this->daysInCourse[2] = daysInCourse3;
+    this->degreeprogram = degreeprogram;  
 }
-
 
 void Student::SetStudentID(string studentID) {
     this->studentID = studentID;
@@ -40,12 +37,10 @@ void Student::SetStudentAge(int age) {
 }
 
 void Student::SetDaysInCourse(int daysInCourse1, int daysInCourse2, int daysInCourse3) {
-        int daysArray[3];
         
-        daysArray[0] = daysInCourse1;
-        daysArray[1] = daysInCourse2;
-        daysArray[2] = daysInCourse3;
-        this->daysInCourse = daysArray;
+        this->daysInCourse[0] = daysInCourse1;
+        this->daysInCourse[1] = daysInCourse2;
+        this->daysInCourse[2] = daysInCourse3;
         
 }
 
@@ -83,29 +78,11 @@ string Student::GetDegreeProgram() const {
 }
 
 void Student::print() const {
-    int* DaysInCourse = GetDaysInCourse();
-    cout << DaysInCourse[0];
-    cout << DaysInCourse[0];
-    cout << DaysInCourse[0];
     cout << "First Name: " << GetFirstName() << "    ";
     cout << "Last Name: " << GetLastName() << "    ";
     cout << "Email Address: " << GetEmailAddress() << "    ";
     cout << "Age: " << GetAge() << "    ";
-    cout << "daysInCourse: {" << DaysInCourse[0] << ", " << DaysInCourse[1] << ", " << DaysInCourse[2] << "}    ";
-    cout << "Degree Program: " << GetDegreeProgram() << ".";
+    cout << "daysInCourse: {" << GetDaysInCourse()[0] << ", " << GetDaysInCourse()[1] << ", " << GetDaysInCourse()[2] << "}    ";
+    cout << "Degree Program: " << GetDegreeProgram() << "." << endl;
     return;
 }
-
-// int main() {
-//     int myArray[3] = {1, 2, 3};
-//     cout << *myArray;
-    // Student student1("1", "Daniel",  "Hinker",  "danhinker@gmail.com" ,  22,  1,2,3, SOFTWARE);
-//     // int* newArray = student1.GetDaysInCourse();
-//     student1.PrintData();
-//     // cout << *newArray;
-//     // cout << student1.GetAge();
-//     // student1.SetStudentID("asdfasdf");
-//     // cout << "hey " << student1.GetStudentID() << endl;
-//     // return 0;
-// }
-

@@ -4,11 +4,11 @@
 
 
 Roster::Roster() {
-    // for (int i = 0; i < 5; i++) {
-    //     delete classRosterArray[i];
-    //     classRosterArray[i] = nullptr;
-    // }
-    // classRosterArray = nullptr;
+    for (int i = 0; i < 5; i++) {
+        
+        classRosterArray[i] = nullptr;
+    }
+ 
     addCounter = 0;
 }
 
@@ -17,8 +17,6 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
     classRosterArray[addCounter] = new Student(studentID, firstName,  lastName,  emailAddress ,  age,  daysInCourse1, daysInCourse2, daysInCourse3, degreeprogram);
     
     addCounter++;
-            
-    
 
 }
 
@@ -35,7 +33,7 @@ void Roster::remove(string StudentID) {
         
         } else {}
     }
-    cout << "Student Not Found";
+    cout << "student with this ID was not found.";
 }
 
 void Roster::printAll() {
@@ -47,7 +45,14 @@ void Roster::printAll() {
 }
 
 void Roster::printAverageDaysInCourse(string StudentID) {
-
+    for (int i = 0; i < 5; i++) {
+        if (classRosterArray[i] != nullptr && classRosterArray[i]->GetStudentID() == StudentID) {
+            
+            int* daysInCourse = classRosterArray[i]->GetDaysInCourse();
+            cout << ((daysInCourse[0] + daysInCourse[1] + daysInCourse[2]) / 3) << endl;
+            return;
+        }
+    }
 }
 
 void Roster::printInvalidEmails() {
@@ -56,7 +61,7 @@ void Roster::printInvalidEmails() {
             string studentEmail = classRosterArray[i]->GetEmailAddress();
             
                 if ((studentEmail.find('@') > studentEmail.size()) || (studentEmail.find('.') > studentEmail.size()) || (studentEmail.find(' ') < studentEmail.size())) {
-                    cout << studentEmail;
+                    cout << studentEmail << endl;
                 }
             
         }
