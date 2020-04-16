@@ -7,15 +7,15 @@
 using namespace std;
 
 int main() {
-    // cout << "Scripting and Programming Applications: C867" << endl;
-    // cout << "Programming Language: C++" << endl;
-    // cout << "Student ID: 001284172" << endl;
-    // cout << "Student Name: Daniel Hinker" << endl;
+    cout << "Scripting and Programming Applications: C867" << endl;
+    cout << "Programming Language: C++" << endl;
+    cout << "Student ID: 001284172" << endl;
+    cout << "Student Name: Daniel Hinker" << endl;
   
-    // const string studentData2[] = 
+    
+    Roster* classRoster;
+    classRoster = new Roster;
 
-    // {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY"};
-    Roster classRoster;
     const string studentData[] = 
 
     {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY", "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK", "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE", "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY", "A5,[firstname],[lastname],[emailaddress],[age], [numberofdaystocomplete3courses],SOFTWARE"};
@@ -47,7 +47,7 @@ int main() {
         charPointer = strtok (NULL, ",");
         counter++;
     }
-    // cout << stringVector.size();
+    
     if (stringVector.size() == 9) {
     
         string studentID = stringVector[0];
@@ -72,7 +72,7 @@ int main() {
      
         
         
-        classRoster.add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeprogram);
+        classRoster->add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeprogram);
         } else {
             string studentID = stringVector[0];
         string firstName = stringVector[1];
@@ -91,28 +91,26 @@ int main() {
         } else {
             degreeprogram = SOFTWARE;
         }
-     
-        
-        
-        classRoster.add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeprogram);
+
+        classRoster->add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeprogram);
         }
         }
-        // classRoster.printAll();
-        // classRoster.printInvalidEmails();
-        // for (int i = 0; i < 5; i++) {
-        //     classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->GetStudentID());
-        // }
+        classRoster->printAll();
+        classRoster->printInvalidEmails();
 
-        // classRoster.printByDegreeProgram(SOFTWARE);
+        for (int i = 0; i < 5; i++) {
+            classRoster->printAverageDaysInCourse(classRoster->classRosterArray[i]->GetStudentID());
+        }
 
-        classRoster.remove("A3");
+        classRoster->printByDegreeProgram(SOFTWARE);
 
-        classRoster.printAll();
+        classRoster->remove("A3");
 
-        classRoster.remove("A3");
+        classRoster->printAll();
 
-    
+        classRoster->remove("A3");
+        delete classRoster;
+        
 
     return 0;
 }
-
