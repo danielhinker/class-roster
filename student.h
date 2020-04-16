@@ -6,7 +6,7 @@ class Student {
     
     public:
 
-    Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], DegreeProgram degreeprogram);
+    Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram);
 
     // Mutators
         void SetStudentID(string studentID);         
@@ -14,7 +14,7 @@ class Student {
         void SetLastName(string lastName);              
         void SetEmailAddress(string emailAddress);       
         void SetStudentAge(int age);                          
-        void SetDaysInCourse(int daysInCourse[]);
+        void SetDaysInCourse(int daysInCourse1, int daysInCourse2, int daysInCourse3);
         void SetDegreeProgram(DegreeProgram degreeprogram);
 
     // Accessor
@@ -25,7 +25,7 @@ class Student {
         int GetAge() const;               
         int* GetDaysInCourse() const;             
         string GetDegreeProgram() const;
-        void PrintData() const;
+        void print() const;
         
     private:
         string studentID;
